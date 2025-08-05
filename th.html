@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You for Completing the Quiz!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      animation: backgroundMove 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #00ffe0, 0 0 30px #00ffe0;
+      }
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 40px #00e0ff, 0 0 60px #00e0ff;
+      }
+    }
+
+    .qabox {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .option {
+      margin-left: 20px;
+      padding: 5px 0;
+    }
+
+    .correct {
+      color: #00ffcc;
+      font-weight: bold;
+    }
+
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .footer {
+      margin-top: 40px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+<canvas class="confetti"></canvas>
+
+<div class="container">
+  <h1>🎉 Thank You for Completing the Quiz! 🎉</h1>
+  <p>Below are the correct answers. Well done!</p>
+
+  <!-- Questions and Answers -->
+  <div class="qabox">
+    <div class="question">Q1. Who discovered electricity?</div>
+    <div class="option">☐ Thomas Alva Edison</div>
+    <div class="option correct">✅ Benjamin Franklin</div>
+    <div class="option">☐ Isaac Newton</div>
+    <div class="option">☐ Sir CV Raman</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q2. Which is the largest democracy in the world?</div>
+    <div class="option">☐ United States of America</div>
+    <div class="option">☐ Russia</div>
+    <div class="option correct">✅ India</div>
+    <div class="option">☐ China</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q3. What is the capital of Japan?</div>
+    <div class="option">☐ Beijing</div>
+    <div class="option correct">✅ Tokyo</div>
+    <div class="option">☐ Seoul</div>
+    <div class="option">☐ Bangkok</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q4. How many continents are there on Earth?</div>
+    <div class="option">☐ 5</div>
+    <div class="option">☐ 6</div>
+    <div class="option correct">✅ 7</div>
+    <div class="option">☐ 8</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q5. What gas do plants absorb from the atmosphere?</div>
+    <div class="option">☐ Oxygen</div>
+    <div class="option correct">✅ Carbon Dioxide</div>
+    <div class="option">☐ Nitrogen</div>
+    <div class="option">☐ Helium</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q6. What is the national animal of India?</div>
+    <div class="option">☐ Lion</div>
+    <div class="option correct">✅ Tiger</div>
+    <div class="option">☐ Elephant</div>
+    <div class="option">☐ Peacock</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q7. Which planet is known as the ‘Red Planet’?</div>
+    <div class="option">☐ Venus</div>
+    <div class="option">☐ Jupiter</div>
+    <div class="option correct">✅ Mars</div>
+    <div class="option">☐ Mercury</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q8. Who wrote the Indian National Anthem?</div>
+    <div class="option">☐ Mahatma Gandhi</div>
+    <div class="option correct">✅ Rabindranath Tagore</div>
+    <div class="option">☐ Jawaharlal Nehru</div>
+    <div class="option">☐ Subhash Chandra Bose</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q9. How many players are there in a cricket team (on-field)?</div>
+    <div class="option">☐ 10</div>
+    <div class="option correct">✅ 11</div>
+    <div class="option">☐ 9</div>
+    <div class="option">☐ 12</div>
+  </div>
+
+  <div class="qabox">
+    <div class="question">Q10. Which organ purifies blood in the human body?</div>
+    <div class="option">☐ Heart</div>
+    <div class="option">☐ Lungs</div>
+    <div class="option correct">✅ Kidneys</div>
+    <div class="option">☐ Liver</div>
+  </div>
+
+  <div class="footer">Made with ❤️ by Jay Supekar</div>
+</div>
+
+<!-- Confetti Script -->
+<script>
+  const canvas = document.querySelector('.confetti');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const confettiCount = 200;
+  const confetti = [];
+
+  for (let i = 0; i < confettiCount; i++) {
+    confetti.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 2,
+      d: Math.random() * confettiCount,
+      color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+      tilt: Math.floor(Math.random() * 10) - 10,
+      tiltAngleIncremental: (Math.random() * 0.07) + 0.05,
+      tiltAngle: 0
+    });
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetti.forEach((c, i) => {
+      ctx.beginPath();
+      ctx.lineWidth = c.r;
+      ctx.strokeStyle = c.color;
+      ctx.moveTo(c.x + c.tilt + (c.r / 2), c.y);
+      ctx.lineTo(c.x + c.tilt, c.y + c.tilt + (c.r / 2));
+      ctx.stroke();
+    });
+
+    updateConfetti();
+  }
+
+  function updateConfetti() {
+    confetti.forEach((c, i) => {
+      c.tiltAngle += c.tiltAngleIncremental;
+      c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+      c.tilt = Math.sin(c.tiltAngle - i / 3) * 15;
+
+      if (c.y > canvas.height) {
+        c.x = Math.random() * canvas.width;
+        c.y = -20;
+      }
+    });
+  }
+
+  function animate() {
+    drawConfetti();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+</body>
+</html>
